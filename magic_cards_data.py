@@ -16,7 +16,7 @@ def put_data_in():
                 0, 'common', 0.01, 'mark poole', 'alpha');""")
     cur.execute("""INSERT INTO magiccards (name, type, color, cmc, rarity,
                 price, artist, cardset) VALUES ('jace the mindsculptor',
-                'planeswalker', 'blue', 4.00, 'mythic', 75, 'jason chan',
+                'planeswalker', 'blue', 4, 'mythic', 75.00, 'jason chan',
                 'worldwake');""")
     cur.execute("""INSERT INTO magiccards (name, type, color, cmc, rarity,
                 price, artist, cardset) VALUES ('tarmogoyf', 'creature',
