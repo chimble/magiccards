@@ -7,7 +7,7 @@ def show_all_cards():
 #show_all_cards()
 
 def show_single_card():
-    user_id = int(input("id?"))
+    card_id = int(input("id?"))
     sql = "SELECT * FROM magiccards WHERE id = %s"
     cur.execute(sql, (user_id,))
     print(tabulate(cur, tablefmt="fancy_grid", headers = ["id", "name", "type", "color", "cmc", "rarity", "price"]))
@@ -25,18 +25,26 @@ def insert_card():
     conn.commit()
 #insert_card()
 
-def show_column_choice():
-    cur.execute("SELECT name, color FROM magiccards WHERE color LIKE '%blue';")
+def show_column_search():
+
+    card_column = input("sort by? ")
+    card_value = input("choice of " + card_column + "? ")
+    sql = "SELECT * FROM magiccards WHERE " + card_column + " LIKE %s"
+    print(sql)
+    cur.execute(sql, (card_value,))
+    #cur.execute("SELECT name, color FROM magiccards WHERE color LIKE '%blue';")
     print(tabulate(cur, tablefmt="fancy_grid", headers = ["id", "name", "type", "color", "cmc", "rarity", "price"]))
 
 def menu_stuff():
-    choice = int(input("do you want to search by ID (1)? show all cards (2)? add new card (3)?"))
+    choice = int(input("do you want to search by ID (1)? show all cards (2)? add new card (3)? sort cards by anything (4)? "))
     if choice == 1:
         show_single_card()
     if choice == 2:
         show_all_cards()
     if choice == 3:
         insert_card()
+    if choice == 4:
+        show_column_search()
     menu_stuff()
 menu_stuff()
 #show_column_choice()
