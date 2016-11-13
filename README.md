@@ -1,15 +1,16 @@
 # magiccards
 
 ###List of Files:
-#####
-#####
+
+
 #####magic_cards_data.py: Run this file first to generate the initial db.
 #####magiccards.py: Run this file second to allow user to query the db.
 #####README.md: You are here now.
-#####
-#####
+
+
 ###How to Use:
-#####
+
+
 #####After running magiccards.py, you'll be prompted for a choice.
 #####1: search card by ID,
 #####2: show entire db of cards,
